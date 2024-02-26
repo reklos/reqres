@@ -1,5 +1,7 @@
 <?php
 
+namespace GeorgiosReklos\Reqres\Tests;
+
 use GeorgiosReklos\Reqres\Client;
 use GeorgiosReklos\Reqres\Exceptions\PropertyNotFoundException;
 use GeorgiosReklos\Reqres\Service\UserPaginationService;

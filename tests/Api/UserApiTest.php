@@ -1,6 +1,6 @@
 <?php
 
-namespace Api;
+namespace GeorgiosReklos\Reqres\Tests\Api;
 
 use GeorgiosReklos\Reqres\Api\UserApi;
 use GeorgiosReklos\Reqres\Exceptions\HttpResourceNotFoundException;

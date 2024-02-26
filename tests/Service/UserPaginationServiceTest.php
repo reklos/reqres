@@ -1,6 +1,6 @@
 <?php
 
-namespace Service;
+namespace GeorgiosReklos\Reqres\Tests\Service;
 
 use GeorgiosReklos\Reqres\Api\UserApi;
 use GeorgiosReklos\Reqres\Service\UserPaginationService;
