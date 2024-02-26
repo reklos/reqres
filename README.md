@@ -1,0 +1,99 @@
+## REQRES Client API
+PHP Client for the REQRES API (https://reqres.in)
+
+## Installation & Usage
+### Composer
+
+To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
+
+```json
+{
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/reklos/reqres"
+    }
+  ],
+  "require": {
+    "reklos/reqres": "dev-master"
+  }
+}
+```
+Then run `composer install`
+
+## Getting Started
+
+### Create a new user
+```php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+try {
+    $client = new Client();
+    $userId = $client->user->createUser(
+        name: 'john',
+        job: 'leader'
+    );
+} catch (ReqresException $e) {
+    echo $e->getMessage();
+}
+```
+
+### Retrieve a single user
+```php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+try {
+    $userId = 1;
+    $client = new Client();
+    $user = $client->user->getUser($userId);
+} catch (ReqresException $e) {
+    echo $e->getMessage();
+}
+```
+### Retrieve users from a page
+```php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+try {
+    $client = new Client();
+    $users = $client->user->getUsersFromPage(1);
+    $users = $client->user->getUsersFromPage(2);
+} catch (ReqresException $e) {
+    echo $e->getMessage();
+}
+```
+
+### Pagination
+```php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+try {
+    $client = new Client();
+
+    // Get users for the first page
+    $users = $client->userPagination->getUsers();
+
+    // Move to the next page
+    $client->userPagination->nextPage();
+    $users = $client->userPagination->getUsers();
+
+    // Move to the previous page
+    $client->userPagination->previousPage();
+    $users = $client->userPagination->getUsers();
+
+    // Move to last page
+    $client->userPagination->lastPage();
+    $users = $client->userPagination->getUsers();
+
+    // Move to first page
+    $client->userPagination->firstPage();
+    $users = $client->userPagination->getUsers();
+
+} catch (ReqresException $e) {
+    echo $e->getMessage();
+}
+```
+
+
+
+
