@@ -16,12 +16,12 @@
   },
   "autoload": {
     "psr-4": {
-      "GeorgiosReklos\\Reqres\\" : "src/"
+      "Reklos\\Reqres\\" : "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "GeorgiosReklos\\Reqres\\Test\\": "test/"
+      "Reklos\\Reqres\\Tests\\": "tests/"
     }
   },
   "require-dev": {
