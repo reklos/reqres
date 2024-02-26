@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/path/to/vendor/autoload.php';
+include __DIR__ . '/../vendor/autoload.php';
 
 use GeorgiosReklos\Reqres\Client;
 use GeorgiosReklos\Reqres\Exceptions\ReqresException;

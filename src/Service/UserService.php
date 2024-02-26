@@ -4,6 +4,7 @@ namespace GeorgiosReklos\Reqres\Service;
 
 use GeorgiosReklos\Reqres\Api\UserApi;
 use GeorgiosReklos\Reqres\Dto\UserDto;
+use GeorgiosReklos\Reqres\Exceptions\HttpResponseMissingDataException;
 use GeorgiosReklos\Reqres\Exceptions\ReqresException;
 
 class UserService
@@ -35,6 +36,13 @@ class UserService
     public function getUsersFromPage(int $page = 1): array
     {
         $usersData = $this->userApi->getUsers($page);
+
+        if (!isset($usersData['data'])) {
+            throw new HttpResponseMissingDataException(
+                'Data key is missing in API response'
+            );
+        }
+
         $users = [];
         foreach ($usersData['data'] as $userData) {
             $users[] = new UserDto($userData);

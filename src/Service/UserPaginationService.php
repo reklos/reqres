@@ -4,6 +4,7 @@ namespace GeorgiosReklos\Reqres\Service;
 
 use GeorgiosReklos\Reqres\Api\UserApi;
 use GeorgiosReklos\Reqres\Dto\UserDto;
+use GeorgiosReklos\Reqres\Exceptions\HttpResponseMissingDataException;
 use GeorgiosReklos\Reqres\Exceptions\ReqresException;
 
 class UserPaginationService
@@ -60,6 +61,12 @@ class UserPaginationService
     {
         $this->users = [];
         $userData = $this->userApi->getUsers($this->currentPage);
+
+        if (!isset($userData['data'])) {
+            throw new HttpResponseMissingDataException(
+                'Data key is missing in API response'
+            );
+        }
 
         $this->totalPages = $userData['total_pages'];
         foreach ($userData['data'] as $userData) {

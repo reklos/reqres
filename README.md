@@ -1,26 +1,6 @@
 ## REQRES Client API
 PHP Client for the REQRES API (https://reqres.in)
 
-## Installation & Usage
-### Composer
-
-To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
-
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/reklos/reqres"
-    }
-  ],
-  "require": {
-    "reklos/reqres": "dev-master"
-  }
-}
-```
-Then run `composer install`
-
 ## Getting Started
 
 ### Create a new user

@@ -3,11 +3,24 @@
 namespace GeorgiosReklos\Reqres\Tests\Service;
 
 use GeorgiosReklos\Reqres\Api\UserApi;
+use GeorgiosReklos\Reqres\Exceptions\HttpResponseMissingDataException;
 use GeorgiosReklos\Reqres\Service\UserPaginationService;
 use PHPUnit\Framework\TestCase;
 
 class UserPaginationServiceTest extends TestCase
 {
+
+    public function testThrowsExceptionWhenDataIsMissingInApiResponse()
+    {
+        $this->expectException(HttpResponseMissingDataException::class);
+
+        /** @var UserApi $userApiMock */
+        $userApiMock = $this->createMock(UserApi::class);
+        $userApiMock->method('getUsers')->willReturn([]);
+        $userPaginationService = new UserPaginationService($userApiMock);
+        $userPaginationService->getUsers();
+    }
+
 
     /**
      * @dataProvider userDataProvider
