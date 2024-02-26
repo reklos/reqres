@@ -5,16 +5,16 @@ namespace GeorgiosReklos\Reqres\Http;
 use Exception;
 use GeorgiosReklos\Reqres\Exceptions\HttpException;
 use GeorgiosReklos\Reqres\Exceptions\HttpResourceNotFoundException;
-use GuzzleHttp\ClientInterface;
+use GuzzleHttp\ClientInterface as GuzzleClientInterface;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\GuzzleException;
 
-class GuzzleClient implements Client
+class ReqresClient implements ClientInterface
 {
 
-    private ClientInterface $client;
+    private GuzzleClientInterface $client;
 
-    public function __construct(ClientInterface $client)
+    public function __construct(GuzzleClientInterface $client)
     {
         $this->client = $client;
     }

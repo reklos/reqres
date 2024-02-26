@@ -4,8 +4,8 @@ namespace GeorgiosReklos\Reqres\Api;
 
 use GeorgiosReklos\Reqres\Exceptions\HttpException;
 use GeorgiosReklos\Reqres\Exceptions\HttpResourceNotFoundException;
-use GeorgiosReklos\Reqres\Http\Client as HttpClient;
-use GeorgiosReklos\Reqres\Http\GuzzleClient;
+use GeorgiosReklos\Reqres\Http\ClientInterface as HttpClient;
+use GeorgiosReklos\Reqres\Http\ReqresClient;
 use GuzzleHttp\Client;
 
 class UserApi
@@ -21,7 +21,7 @@ class UserApi
         if ($httpClient) {
             $this->httpClient = $httpClient;
         } else {
-            $this->httpClient = new GuzzleClient(
+            $this->httpClient = new ReqresClient(
                 new Client()
             );
         }

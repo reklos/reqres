@@ -2,7 +2,7 @@
 
 namespace GeorgiosReklos\Reqres\Http;
 
-interface Client
+interface ClientInterface
 {
 
     public function request(

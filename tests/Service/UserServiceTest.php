@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class UserServiceTest extends TestCase
 {
 
-    public function testGetSingleUser()
+    public function testGetSingleUser(): void
     {
         $userToTest = [
             'id' => 1,
@@ -33,7 +33,7 @@ class UserServiceTest extends TestCase
         $this->assertEquals($expectedUserDto->toArray(), $userDto->toArray());
     }
 
-    public function testGetUsersFromPage()
+    public function testGetUsersFromPage(): void
     {
         $usersToTest = [
             [

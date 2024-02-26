@@ -1,12 +1,12 @@
 <?php
 include __DIR__ . '/../vendor/autoload.php';
 
-use GeorgiosReklos\Reqres\Client;
 use GeorgiosReklos\Reqres\Exceptions\ReqresException;
+use GeorgiosReklos\Reqres\Service\ClientService;
 
 try {
     $userId = 1;
-    $client = new Client();
+    $client = new ClientService();
     $user = $client->user->getUser($userId);
 } catch (ReqresException $e) {
     echo $e->getMessage();

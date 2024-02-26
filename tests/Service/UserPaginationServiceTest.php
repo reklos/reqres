@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class UserPaginationServiceTest extends TestCase
 {
 
-    public function testThrowsExceptionWhenDataIsMissingInApiResponse()
+    public function testThrowsExceptionWhenDataIsMissingInApiResponse(): void
     {
         $this->expectException(HttpResponseMissingDataException::class);
 

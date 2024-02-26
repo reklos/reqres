@@ -4,19 +4,19 @@ namespace GeorgiosReklos\Reqres\Tests\Api;
 
 use GeorgiosReklos\Reqres\Api\UserApi;
 use GeorgiosReklos\Reqres\Exceptions\HttpResourceNotFoundException;
-use GeorgiosReklos\Reqres\Http\GuzzleClient;
+use GeorgiosReklos\Reqres\Http\ReqresClient;
 use GeorgiosReklos\Reqres\Http\Response;
 use PHPUnit\Framework\TestCase;
 
 class UserApiTest extends TestCase
 {
 
-    public function testThrowsExceptionWhenUserNotFound()
+    public function testThrowsExceptionWhenUserNotFound(): void
     {
         $this->expectException(HttpResourceNotFoundException::class);
 
-        /** @var GuzzleClient $httpClientMock */
-        $httpClientMock = $this->createMock(GuzzleClient::class);
+        /** @var ReqresClient $httpClientMock */
+        $httpClientMock = $this->createMock(ReqresClient::class);
         $httpClientMock->method('request')->willThrowException(
                 new HttpResourceNotFoundException('Resource not found')
             );
@@ -39,10 +39,10 @@ class UserApiTest extends TestCase
         $this->assertEquals($userToTest, $user);
     }
 
-    protected function getHttpClientMock(Response $response): GuzzleClient
+    protected function getHttpClientMock(Response $response): ReqresClient
     {
-        /** @var GuzzleClient $httpClientMock */
-        $httpClientMock = $this->createMock(GuzzleClient::class);
+        /** @var ReqresClient $httpClientMock */
+        $httpClientMock = $this->createMock(ReqresClient::class);
         $httpClientMock->method('request')->willReturn($response);
 
         return $httpClientMock;

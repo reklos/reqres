@@ -1,32 +1,32 @@
 <?php
 
-namespace GeorgiosReklos\Reqres\Tests;
+namespace GeorgiosReklos\Reqres\Tests\Service;
 
-use GeorgiosReklos\Reqres\Client;
 use GeorgiosReklos\Reqres\Exceptions\PropertyNotFoundException;
+use GeorgiosReklos\Reqres\Service\ClientService;
 use GeorgiosReklos\Reqres\Service\UserPaginationService;
 use GeorgiosReklos\Reqres\Service\UserService;
 use PHPUnit\Framework\TestCase;
 
-class ClientTest extends TestCase
+class ClientServiceTest extends TestCase
 {
 
-    public function testThrowsExceptionPropertyServiceNotFound()
+    public function testThrowsExceptionPropertyServiceNotFound(): void
     {
         $this->expectException(PropertyNotFoundException::class);
-        $client = new Client();
+        $client = new ClientService();
         $client->foo;
     }
 
-    public function testAccessToUserService()
+    public function testAccessToUserService(): void
     {
-        $client = new Client();
+        $client = new ClientService();
         $this->assertInstanceOf(UserService::class, $client->user);
     }
 
-    public function testAccessToUserPaginationService()
+    public function testAccessToUserPaginationService(): void
     {
-        $client = new Client();
+        $client = new ClientService();
         $this->assertInstanceOf(
             UserPaginationService::class,
             $client->userPagination

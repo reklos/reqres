@@ -8,7 +8,7 @@ PHP Client for the REQRES API (https://reqres.in)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 try {
-    $client = new Client();
+    $client = new ClientService();
     $userId = $client->user->createUser(
         name: 'john',
         job: 'leader'
@@ -24,7 +24,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 try {
     $userId = 1;
-    $client = new Client();
+    $client = new ClientService();
     $user = $client->user->getUser($userId);
 } catch (ReqresException $e) {
     echo $e->getMessage();
@@ -35,7 +35,7 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 try {
-    $client = new Client();
+    $client = new ClientService();
     $users = $client->user->getUsersFromPage(1);
     $users = $client->user->getUsersFromPage(2);
 } catch (ReqresException $e) {
@@ -48,7 +48,7 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 try {
-    $client = new Client();
+    $client = new ClientService();
 
     // Get users for the first page
     $users = $client->userPagination->getUsers();

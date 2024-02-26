@@ -1,17 +1,15 @@
 <?php
 
-namespace GeorgiosReklos\Reqres;
+namespace GeorgiosReklos\Reqres\Service;
 
 use GeorgiosReklos\Reqres\Api\UserApi;
 use GeorgiosReklos\Reqres\Exceptions\PropertyNotFoundException;
-use GeorgiosReklos\Reqres\Service\UserPaginationService;
-use GeorgiosReklos\Reqres\Service\UserService;
 
 /**
  * @property UserService           $user
  * @property UserPaginationService $userPagination
  */
-class Client
+class ClientService
 {
 
     protected UserService $user;
